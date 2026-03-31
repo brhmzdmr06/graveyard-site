@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Why MoviePass Failed: When the Business Model Is the Bug - GraveyardCheck</title>
+<meta name="description" content="MoviePass charged $9.95/month for unlimited cinema tickets that cost $15 each. The math never worked. Here is the full post-mortem.">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Instrument+Serif:ital@0;1&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0a0a0a;--surface:#111;--border:#222;--accent:#e8ff00;--accent2:#ff4444;--text:#f0f0f0;--muted:#666;--card:#161616}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'DM Mono',monospace;min-height:100vh}
+nav{padding:20px 40px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between}
+.logo{font-family:'Bebas Neue',sans-serif;font-size:22px;color:var(--text);text-decoration:none}
+.logo span{color:var(--accent)}
+.cta{padding:8px 20px;background:var(--accent);color:#000;font-family:'Bebas Neue',sans-serif;font-size:14px;letter-spacing:2px;text-decoration:none}
+.container{max-width:680px;margin:0 auto;padding:60px 24px}
+.breadcrumb{font-size:11px;color:var(--muted);margin-bottom:32px}
+.breadcrumb a{color:var(--muted);text-decoration:none}
+.post-label{font-size:10px;color:var(--accent2);text-transform:uppercase;letter-spacing:3px;margin-bottom:16px}
+h1{font-family:'Instrument Serif',serif;font-size:clamp(32px,5vw,48px);line-height:1.15;margin-bottom:20px}
+.post-meta{display:flex;gap:20px;font-size:11px;color:var(--muted);margin-bottom:40px;padding-bottom:32px;border-bottom:1px solid var(--border);flex-wrap:wrap}
+.verdict-box{background:var(--card);border-left:4px solid var(--accent2);padding:20px 24px;margin:32px 0}
+.verdict-label{font-size:10px;color:var(--accent2);text-transform:uppercase;letter-spacing:2px;margin-bottom:8px}
+.verdict-text{font-family:'Instrument Serif',serif;font-size:18px;font-style:italic;color:#ccc;line-height:1.6}
+h2{font-family:'Bebas Neue',sans-serif;font-size:26px;letter-spacing:1px;color:var(--text);margin:40px 0 16px}
+p{font-size:14px;color:#bbb;line-height:1.9;margin-bottom:16px}
+.stat-row{display:flex;gap:2px;margin:28px 0;flex-wrap:wrap}
+.stat{background:var(--card);border:1px solid var(--border);padding:16px 20px;flex:1;text-align:center;min-width:120px}
+.stat-num{font-family:'Bebas Neue',sans-serif;font-size:28px;color:var(--accent);display:block}
+.stat-label{font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:1px}
+.lesson-box{background:var(--card);border:1px solid var(--border);border-left:4px solid var(--accent);padding:20px 24px;margin:20px 0}
+.lesson-label{font-size:10px;color:var(--accent);text-transform:uppercase;letter-spacing:2px;margin-bottom:8px}
+.lesson-text{font-size:13px;color:#ccc;line-height:1.7}
+.cta-box{background:var(--surface);border:1px solid var(--border);padding:32px;text-align:center;margin:48px 0 0;position:relative;overflow:hidden}
+.cta-box::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--accent2),var(--accent))}
+.cta-title{font-family:'Bebas Neue',sans-serif;font-size:26px;letter-spacing:2px;margin-bottom:8px}
+.cta-desc{font-size:12px;color:var(--muted);margin-bottom:20px;line-height:1.7}
+.cta-btn{display:inline-block;padding:14px 40px;background:var(--accent);color:#000;font-family:'Bebas Neue',sans-serif;font-size:18px;letter-spacing:3px;text-decoration:none}
+.cta-price{font-size:11px;color:var(--muted);margin-top:10px}
+footer{margin-top:80px;padding:32px 0;border-top:1px solid var(--border);text-align:center;font-size:11px;color:var(--muted)}
+.back-link{display:inline-block;margin-top:40px;font-size:12px;color:var(--muted);text-decoration:none}
+</style>
+</head>
+<body>
+<nav><a href="/" class="logo">Graveyard<span>Check</span></a><a href="https://buy.stripe.com/fZudR8fIv0lK2Vm1uz5sA03" class="cta">Get Report</a></nav>
+<div class="container">
+<div class="breadcrumb"><a href="/">Home</a> / <a href="/blog">Blog</a> / MoviePass</div>
+<div class="post-label">Post-Mortem / Entertainment / 2019</div>
+<h1>MoviePass: What Happens When Your Business Model Is the Bug</h1>
+<div class="post-meta"><span>Founded: 2011</span><span>Shut down: 2019</span><span>Raised: $68M</span><span>Peak users: 3M</span></div>
+<div class="verdict-box"><div class="verdict-label">The one-line verdict</div><div class="verdict-text">MoviePass paid full price for cinema tickets and charged customers less than half that. They called it a strategy. It was just arithmetic they refused to do.</div></div>
+<div class="stat-row">
+<div class="stat"><span class="stat-num">$9.95</span><span class="stat-label">Monthly fee</span></div>
+<div class="stat"><span class="stat-num">$15</span><span class="stat-label">Avg ticket cost</span></div>
+<div class="stat"><span class="stat-num">3M</span><span class="stat-label">Peak subscribers</span></div>
+<div class="stat"><span class="stat-num">-$40M</span><span class="stat-label">Monthly burn</span></div>
+</div>
+<h2>The Idea</h2>
+<p>MoviePass offered a simple proposition: pay $9.95 per month and see one film per day at any cinema in America. For regular cinemagoers it was an extraordinary deal. A single ticket costs $15 or more. Two films a month and you were already ahead. Within a year of dropping the price in 2017, MoviePass grew from 20,000 to 3 million subscribers.</p>
+<h2>The Math That Never Worked</h2>
+<p>MoviePass bought tickets at full retail price and charged a flat monthly fee far below cost. No volume discount, no revenue share with cinemas. If a subscriber saw just one film per month, MoviePass lost money. If they saw two, MoviePass lost more. At peak they were burning $40 million per month.</p>
+<div class="lesson-box"><div class="lesson-label">Lesson 1</div><div class="lesson-text">If your unit economics are negative, you cannot grow your way to profitability. Build a model where each additional customer makes the business more sustainable, not less.</div></div>
+<h2>The Data Bet That Never Paid Off</h2>
+<p>MoviePass leadership knew the numbers did not work. Their bet was that user data would be valuable enough to subsidise losses. They would sell insights to studios and advertisers. None of it materialised at the scale needed. The data strategy was a hope, not a plan, and they were burning $40 million a month waiting for it.</p>
+<div class="lesson-box"><div class="lesson-label">Lesson 2</div><div class="lesson-text">A future revenue hypothesis is not a business model. If your current model requires a speculative second act to become viable, stress-test that second act before committing to the first one.</div></div>
+<h2>The End</h2>
+<p>By 2019 MoviePass had restricted usage so heavily that the value proposition had evaporated. Subscribers left. The company shut down in September 2019. AMC and Regal then launched their own cinema subscription programmes with economics that actually worked.</p>
+<div class="lesson-box"><div class="lesson-label">Lesson 3</div><div class="lesson-text">Your competitors will copy what works, not what you hoped would work. The cinema subscription idea was fine. MoviePass's execution was fatal. Someone else took the concept, fixed the unit economics, and survived.</div></div>
+<a href="/blog" class="back-link">Back to all post-mortems</a>
+<div class="cta-box">
+<div class="cta-title">Does Your Idea Have the Same Problems?</div>
+<div class="cta-desc">Get a personalised failure analysis for your startup idea before you build.</div>
+<a href="https://buy.stripe.com/fZudR8fIv0lK2Vm1uz5sA03" class="cta-btn">Get My Report - 4.99</a>
+<div class="cta-price">One-time / Delivered within 24 hours / No subscription</div>
+</div>
+</div>
+<footer>graveyardcheck.com / Learn from the dead before you build.</footer>
+</body>
+</html>
