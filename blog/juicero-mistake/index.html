@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Juicero's $400 Mistake: Solving a Problem Nobody Had - GraveyardCheck</title>
+<meta name="description" content="Juicero raised $120M for a wifi-connected juice press. Reporters showed you could squeeze the packs by hand. Here is the full post-mortem.">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Instrument+Serif:ital@0;1&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0a0a0a;--surface:#111;--border:#222;--accent:#e8ff00;--accent2:#ff4444;--text:#f0f0f0;--muted:#666;--card:#161616}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'DM Mono',monospace;min-height:100vh}
+nav{padding:20px 40px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between}
+.logo{font-family:'Bebas Neue',sans-serif;font-size:22px;color:var(--text);text-decoration:none}
+.logo span{color:var(--accent)}
+.cta{padding:8px 20px;background:var(--accent);color:#000;font-family:'Bebas Neue',sans-serif;font-size:14px;letter-spacing:2px;text-decoration:none}
+.container{max-width:680px;margin:0 auto;padding:60px 24px}
+.breadcrumb{font-size:11px;color:var(--muted);margin-bottom:32px}
+.breadcrumb a{color:var(--muted);text-decoration:none}
+.post-label{font-size:10px;color:var(--accent2);text-transform:uppercase;letter-spacing:3px;margin-bottom:16px}
+h1{font-family:'Instrument Serif',serif;font-size:clamp(32px,5vw,48px);line-height:1.15;margin-bottom:20px}
+.post-meta{display:flex;gap:20px;font-size:11px;color:var(--muted);margin-bottom:40px;padding-bottom:32px;border-bottom:1px solid var(--border);flex-wrap:wrap}
+.verdict-box{background:var(--card);border-left:4px solid var(--accent2);padding:20px 24px;margin:32px 0}
+.verdict-label{font-size:10px;color:var(--accent2);text-transform:uppercase;letter-spacing:2px;margin-bottom:8px}
+.verdict-text{font-family:'Instrument Serif',serif;font-size:18px;font-style:italic;color:#ccc;line-height:1.6}
+h2{font-family:'Bebas Neue',sans-serif;font-size:26px;letter-spacing:1px;color:var(--text);margin:40px 0 16px}
+p{font-size:14px;color:#bbb;line-height:1.9;margin-bottom:16px}
+.stat-row{display:flex;gap:2px;margin:28px 0;flex-wrap:wrap}
+.stat{background:var(--card);border:1px solid var(--border);padding:16px 20px;flex:1;text-align:center;min-width:120px}
+.stat-num{font-family:'Bebas Neue',sans-serif;font-size:28px;color:var(--accent);display:block}
+.stat-label{font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:1px}
+.lesson-box{background:var(--card);border:1px solid var(--border);border-left:4px solid var(--accent);padding:20px 24px;margin:20px 0}
+.lesson-label{font-size:10px;color:var(--accent);text-transform:uppercase;letter-spacing:2px;margin-bottom:8px}
+.lesson-text{font-size:13px;color:#ccc;line-height:1.7}
+.cta-box{background:var(--surface);border:1px solid var(--border);padding:32px;text-align:center;margin:48px 0 0;position:relative;overflow:hidden}
+.cta-box::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--accent2),var(--accent))}
+.cta-title{font-family:'Bebas Neue',sans-serif;font-size:26px;letter-spacing:2px;margin-bottom:8px}
+.cta-desc{font-size:12px;color:var(--muted);margin-bottom:20px;line-height:1.7}
+.cta-btn{display:inline-block;padding:14px 40px;background:var(--accent);color:#000;font-family:'Bebas Neue',sans-serif;font-size:18px;letter-spacing:3px;text-decoration:none}
+.cta-price{font-size:11px;color:var(--muted);margin-top:10px}
+footer{margin-top:80px;padding:32px 0;border-top:1px solid var(--border);text-align:center;font-size:11px;color:var(--muted)}
+.back-link{display:inline-block;margin-top:40px;font-size:12px;color:var(--muted);text-decoration:none}
+</style>
+</head>
+<body>
+<nav><a href="/" class="logo">Graveyard<span>Check</span></a><a href="https://buy.stripe.com/fZudR8fIv0lK2Vm1uz5sA03" class="cta">Get Report</a></nav>
+<div class="container">
+<div class="breadcrumb"><a href="/">Home</a> / <a href="/blog">Blog</a> / Juicero</div>
+<div class="post-label">Post-Mortem / FoodTech / 2017</div>
+<h1>Juicero's $400 Mistake: Solving a Problem Nobody Had</h1>
+<div class="post-meta"><span>Founded: 2013</span><span>Shut down: 2017</span><span>Raised: $120M</span><span>Product price: $400</span></div>
+<div class="verdict-box">
+<div class="verdict-label">The one-line verdict</div>
+<div class="verdict-text">Juicero built a $400 wifi-connected juice press. Reporters showed you could squeeze the packs by hand. There was no reason for the machine to exist.</div>
+</div>
+<div class="stat-row">
+<div class="stat"><span class="stat-num">$120M</span><span class="stat-label">Raised</span></div>
+<div class="stat"><span class="stat-num">$400</span><span class="stat-label">Machine price</span></div>
+<div class="stat"><span class="stat-num">4yr</span><span class="stat-label">Lifespan</span></div>
+<div class="stat"><span class="stat-num">2017</span><span class="stat-label">Shut down</span></div>
+</div>
+<h2>The Idea</h2>
+<p>Juicero wanted to bring cold-pressed juice into the home. The product was a sleek, wifi-connected press that squeezed proprietary ingredient packs — delivered by subscription — into a fresh glass of juice. No chopping, no mess, no cleanup. Just insert the pack and press the button.</p>
+<p>The founder, Doug Evans, positioned it as the Apple of juicing. Google Ventures, Campbell Soup, and Kleiner Perkins all invested. The machine launched at $700, later reduced to $400. It was premium, polished, and backed by serious money.</p>
+<h2>What Went Wrong</h2>
+<p>In April 2017, Bloomberg reporters published a video demonstrating that you could squeeze the Juicero packs by hand — without the machine — and get the same result in roughly the same time. The machine added no functional value. It was a $400 device that did something your hands could do for free.</p>
+<p>The internet had a field day. Juicero became the symbol of Silicon Valley excess — a solution to a problem that did not exist, funded by people who should have known better. The company shut down five months later.</p>
+<div class="lesson-box">
+<div class="lesson-label">Lesson 1</div>
+<div class="lesson-text">Make sure your product is actually necessary. Before building hardware, ask: what happens if someone finds a workaround? If the answer is that your product becomes pointless, you have not solved a real problem.</div>
+</div>
+<h2>The Hardware Trap</h2>
+<p>Hardware startups face a fundamental challenge: the cost of being wrong is enormous. Juicero spent millions on tooling, manufacturing, supply chain, and retail partnerships before a single unit shipped. By the time the product reached customers, the company had burned through most of its capital on a device nobody needed.</p>
+<p>The proprietary pack model — where revenue came from subscriptions, not the machine — required massive user adoption to work. That adoption never came. People were not willing to pay $400 for a device plus ongoing subscription costs for juice they could buy at a shop.</p>
+<div class="lesson-box">
+<div class="lesson-label">Lesson 2</div>
+<div class="lesson-text">In hardware, the cost of a wrong assumption compounds fast. Validate the core value proposition before committing to manufacturing. A prototype that proves people will actually pay for the experience is worth more than a polished product nobody wants.</div>
+</div>
+<h2>The Funding Problem</h2>
+<p>Juicero raised $120 million. That funding enabled the team to build something beautiful and expensive without being forced to confront whether anyone actually needed it. The money insulated them from early market signals that would have killed a bootstrapped company in month three.</p>
+<div class="lesson-box">
+<div class="lesson-label">Lesson 3</div>
+<div class="lesson-text">Funding is not validation. $120 million from credible investors does not mean the market wants your product. It means investors made a bet. They can be wrong. The market decides, not the cap table.</div>
+</div>
+<a href="/blog" class="back-link">Back to all post-mortems</a>
+<div class="cta-box">
+<div class="cta-title">Does Your Idea Have the Same Problems?</div>
+<div class="cta-desc">Get a personalised failure analysis for your startup idea before you build.</div>
+<a href="https://buy.stripe.com/fZudR8fIv0lK2Vm1uz5sA03" class="cta-btn">Get My Report - 4.99</a>
+<div class="cta-price">One-time / Delivered within 24 hours / No subscription</div>
+</div>
+</div>
+<footer>graveyardcheck.com / Learn from the dead before you build.</footer>
+</body>
+</html>
