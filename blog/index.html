@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Startup Failure Blog — GraveyardCheck</title>
+<meta name="description" content="Learn from the most expensive startup failures in history. Real post-mortems, real lessons, no fluff.">
+<link rel="canonical" href="https://graveyardcheck.com/blog/">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #0a0a0a; color: #f0f0f0; font-family: 'Inter', sans-serif; }
+  nav { display: flex; justify-content: space-between; align-items: center; padding: 20px 40px; border-bottom: 1px solid #1a1a1a; }
+  .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+  .logo-icon { background: #e8ff00; color: #000; width: 32px; height: 32px; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 14px; }
+  .logo-text { color: #fff; font-weight: 700; font-size: 15px; letter-spacing: 0.5px; }
+  .nav-links { display: flex; gap: 32px; }
+  .nav-links a { color: #888; text-decoration: none; font-size: 14px; transition: color 0.2s; }
+  .nav-links a:hover, .nav-links a.active { color: #fff; }
+  .nav-cta { background: #e8ff00; color: #000; padding: 8px 20px; font-size: 14px; font-weight: 600; text-decoration: none; border-radius: 4px; }
+  .hero { padding: 80px 40px 60px; max-width: 900px; margin: 0 auto; }
+  .hero-label { font-size: 12px; color: #e8ff00; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 16px; }
+  .hero h1 { font-size: 48px; font-weight: 700; line-height: 1.1; margin-bottom: 16px; }
+  .hero p { font-size: 18px; color: #888; line-height: 1.6; }
+  .posts { max-width: 900px; margin: 0 auto; padding: 0 40px 80px; }
+  .post-card { background: #111; padding: 32px; text-decoration: none; display: block; transition: background 0.2s; border: 1px solid #1a1a1a; border-bottom: none; }
+  .post-card:last-child { border-bottom: 1px solid #1a1a1a; }
+  .post-card:hover { background: #161616; }
+  .post-meta { display: flex; gap: 16px; align-items: center; margin-bottom: 12px; }
+  .post-tag { font-size: 11px; color: #e8ff00; text-transform: uppercase; letter-spacing: 1.5px; background: rgba(232,255,0,0.08); padding: 3px 8px; }
+  .post-date { font-size: 12px; color: #555; }
+  .post-title { font-size: 22px; font-weight: 600; color: #fff; margin-bottom: 8px; line-height: 1.3; }
+  .post-excerpt { font-size: 14px; color: #666; line-height: 1.6; margin-bottom: 16px; }
+  .post-read { font-size: 13px; color: #e8ff00; }
+  .cta-section { background: #111; border-top: 1px solid #1a1a1a; border-bottom: 1px solid #1a1a1a; padding: 60px 40px; text-align: center; margin-top: 60px; }
+  .cta-section h2 { font-size: 28px; font-weight: 700; margin-bottom: 12px; }
+  .cta-section p { color: #666; font-size: 16px; margin-bottom: 28px; }
+  .cta-btn { display: inline-block; background: #e8ff00; color: #000; padding: 14px 32px; font-weight: 600; font-size: 15px; text-decoration: none; }
+  footer { padding: 32px 40px; text-align: center; color: #333; font-size: 13px; }
+  footer a { color: #555; text-decoration: none; margin: 0 12px; }
+  @media(max-width:600px){ nav{padding:16px 20px;} .nav-links{display:none;} .hero{padding:48px 20px 40px;} .hero h1{font-size:32px;} .posts{padding:0 20px 60px;} }
+</style>
+</head>
+<body>
+<nav>
+  <a href="/" class="logo">
+    <div class="logo-icon">G</div>
+    <span class="logo-text">GRAVEYARD CHECK</span>
+  </a>
+  <div class="nav-links">
+    <a href="/">Home</a>
+    <a href="/blog/" class="active">Blog</a>
+  </div>
+  <a href="https://buy.stripe.com/fZudR8fIv0lK2Vm1uz5sA03" class="nav-cta">Get Report £4.99</a>
+</nav>
+<div class="hero">
+  <div class="hero-label">The Graveyard Files</div>
+  <h1>Learn from startups<br>that didn't make it.</h1>
+  <p>Real post-mortems. Real money lost. Real lessons you can use before you build.</p>
+</div>
+<div class="posts">
+  <a href="/blog/why-quibi-failed/" class="post-card">
+    <div class="post-meta"><span class="post-tag">Case Study</span><span class="post-date">March 2026</span></div>
+    <div class="post-title">Why Quibi Failed: £1.75B Lesson in Timing and Market Assumptions</div>
+    <div class="post-excerpt">Quibi raised more money than almost any startup in history — then shut down in six months. Here's the exact chain of decisions that turned a billion-dollar idea into a cautionary tale.</div>
+    <div class="post-read">Read case study →</div>
+  </a>
+  <a href="/blog/wework-collapse/" class="post-card">
+    <div class="post-meta"><span class="post-tag">Case Study</span><span class="post-date">March 2026</span></div>
+    <div class="post-title">The WeWork Collapse: What Happens When Growth Hides a Broken Business Model</div>
+    <div class="post-excerpt">At its peak, WeWork was valued at $47 billion. Two years later it filed for bankruptcy. The warning signs were always there — hidden behind a growth story everyone wanted to believe.</div>
+    <div class="post-read">Read case study →</div>
+  </a>
+  <a href="/blog/juicero-mistake/" class="post-card">
+    <div class="post-meta"><span class="post-tag">Case Study</span><span class="post-date">March 2026</span></div>
+    <div class="post-title">Juicero's $400 Mistake: The Danger of Solving Problems Nobody Has</div>
+    <div class="post-excerpt">A $400 wifi-connected juice press. $120 million raised. Shut down when journalists proved you could squeeze the packs by hand. The perfect case study in building solutions without problems.</div>
+    <div class="post-read">Read case study →</div>
+  </a>
+</div>
+<div class="cta-section">
+  <h2>Does your idea have the same patterns?</h2>
+  <p>Check your startup idea against real failure patterns before you build.</p>
+  <a href="https://buy.stripe.com/fZudR8fIv0lK2Vm1uz5sA03" class="cta-btn">Get My Failure Report — £4.99</a>
+</div>
+<footer><p>© 2026 GraveyardCheck · <a href="/">Home</a> <a href="/blog/">Blog</a></p></footer>
+</body>
+</html>
